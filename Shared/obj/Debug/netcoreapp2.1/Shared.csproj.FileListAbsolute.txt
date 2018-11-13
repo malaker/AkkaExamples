@@ -1,0 +1,16 @@
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\bin\Debug\netcoreapp2.1\Shared.deps.json
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\bin\Debug\netcoreapp2.1\Shared.dll
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\bin\Debug\netcoreapp2.1\Shared.pdb
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\obj\Debug\netcoreapp2.1\Shared.csproj.CoreCompileInputs.cache
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\obj\Debug\netcoreapp2.1\Shared.AssemblyInfoInputs.cache
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\obj\Debug\netcoreapp2.1\Shared.AssemblyInfo.cs
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\obj\Debug\netcoreapp2.1\Shared.dll
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\obj\Debug\netcoreapp2.1\Shared.pdb
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\obj\Debug\netcoreapp2.1\Shared.csprojAssemblyReference.cache
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\bin\Debug\netcoreapp2.1\Shared.Messages.dll
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\bin\Debug\netcoreapp2.1\Shared.Messages.pdb
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\obj\Debug\netcoreapp2.1\Shared.csproj.CopyComplete
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\bin\Debug\netcoreapp2.1\Shared.Common.dll
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\bin\Debug\netcoreapp2.1\Shared.Interfaces.dll
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\bin\Debug\netcoreapp2.1\Shared.Common.pdb
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared\bin\Debug\netcoreapp2.1\Shared.Interfaces.pdb

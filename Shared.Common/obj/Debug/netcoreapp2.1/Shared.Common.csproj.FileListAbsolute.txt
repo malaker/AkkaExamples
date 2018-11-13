@@ -1,0 +1,9 @@
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Common\bin\Debug\netcoreapp2.1\Shared.Common.deps.json
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Common\bin\Debug\netcoreapp2.1\Shared.Common.dll
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Common\obj\Debug\netcoreapp2.1\Shared.Common.csprojAssemblyReference.cache
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Common\obj\Debug\netcoreapp2.1\Shared.Common.csproj.CoreCompileInputs.cache
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Common\obj\Debug\netcoreapp2.1\Shared.Common.AssemblyInfoInputs.cache
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Common\obj\Debug\netcoreapp2.1\Shared.Common.AssemblyInfo.cs
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Common\bin\Debug\netcoreapp2.1\Shared.Common.pdb
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Common\obj\Debug\netcoreapp2.1\Shared.Common.dll
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Common\obj\Debug\netcoreapp2.1\Shared.Common.pdb

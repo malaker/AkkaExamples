@@ -1,0 +1,9 @@
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Messages\bin\Debug\netcoreapp2.1\Shared.Messages.deps.json
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Messages\bin\Debug\netcoreapp2.1\Shared.Messages.dll
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Messages\bin\Debug\netcoreapp2.1\Shared.Messages.pdb
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Messages\obj\Debug\netcoreapp2.1\Shared.Messages.csproj.CoreCompileInputs.cache
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Messages\obj\Debug\netcoreapp2.1\Shared.Messages.AssemblyInfoInputs.cache
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Messages\obj\Debug\netcoreapp2.1\Shared.Messages.AssemblyInfo.cs
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Messages\obj\Debug\netcoreapp2.1\Shared.Messages.dll
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Messages\obj\Debug\netcoreapp2.1\Shared.Messages.pdb
+C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Messages\obj\Debug\netcoreapp2.1\Shared.Messages.csprojAssemblyReference.cache
