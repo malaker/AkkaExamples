@@ -5118,11 +5118,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared\\Shared.csproj",
+      "projectUniqueName": "C:\\Nowy folder\\Shared\\Shared.csproj",
       "projectName": "Shared",
-      "projectPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared\\Shared.csproj",
+      "projectPath": "C:\\Nowy folder\\Shared\\Shared.csproj",
       "packagesPath": "C:\\Users\\kb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared\\obj\\",
+      "outputPath": "C:\\Nowy folder\\Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5141,14 +5141,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Common\\Shared.Common.csproj": {
-              "projectPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Common\\Shared.Common.csproj"
+            "C:\\Nowy folder\\Shared.Common\\Shared.Common.csproj": {
+              "projectPath": "C:\\Nowy folder\\Shared.Common\\Shared.Common.csproj"
             },
-            "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Interfaces\\Shared.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Interfaces\\Shared.Interfaces.csproj"
+            "C:\\Nowy folder\\Shared.Interfaces\\Shared.Interfaces.csproj": {
+              "projectPath": "C:\\Nowy folder\\Shared.Interfaces\\Shared.Interfaces.csproj"
             },
-            "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Messages\\Shared.Messages.csproj": {
-              "projectPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Messages\\Shared.Messages.csproj"
+            "C:\\Nowy folder\\Shared.Messages\\Shared.Messages.csproj": {
+              "projectPath": "C:\\Nowy folder\\Shared.Messages\\Shared.Messages.csproj"
             }
           }
         }

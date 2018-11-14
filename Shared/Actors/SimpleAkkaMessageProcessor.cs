@@ -5,7 +5,6 @@ using Shared.Messages;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -17,7 +16,7 @@ namespace Shared
         {
             this.mediator = mediator;
             this.serializer = new XmlSerializer(typeof(SomeContract));
-            Receive<Confluent.Kafka.Message>(MessageHandler);
+            Receive<Confluent.Kafka.Message<Null, string>>(MessageHandler);
             Receive<FlushBufferMessage>(async m => await FlushHandler(m));
             Context.System.Scheduler.ScheduleTellRepeatedlyCancelable(1000, 2000, Self, new FlushBufferMessage(), Self);
         }
@@ -27,13 +26,11 @@ namespace Shared
         private IMediator mediator;
         private XmlSerializer serializer;
 
-        private bool MessageHandler(Confluent.Kafka.Message msg)
+        private bool MessageHandler(Confluent.Kafka.Message<Null, string> msg)
         {
-            string s = Encoding.UTF8.GetString(msg.Value);
-            using (MemoryStream memStream = new MemoryStream(msg.Value))
-            using (StreamReader stream = new StreamReader(memStream, Encoding.UTF8))
+            using (StringReader strReader = new StringReader(msg.Value))
             {
-                var someContractObj = (SomeContract)serializer.Deserialize(stream);
+                var someContractObj = (SomeContract)serializer.Deserialize(strReader);
                 this.Buffer.Add(someContractObj);
                 this.OffsetPartition.Add(msg.TopicPartitionOffset);
             }

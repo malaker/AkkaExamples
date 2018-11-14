@@ -16,3 +16,21 @@ C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.IoC\obj\Deb
 C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.IoC\obj\Debug\netcoreapp2.1\Shared.IoC.csproj.CopyComplete
 C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.IoC\obj\Debug\netcoreapp2.1\Shared.IoC.dll
 C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.IoC\obj\Debug\netcoreapp2.1\Shared.IoC.pdb
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.IoC.deps.json
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.IoC.dll
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.IoC.pdb
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.Common.dll
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.dll
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.Interfaces.dll
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.Messages.dll
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.Interfaces.pdb
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.pdb
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.Common.pdb
+C:\Nowy folder\Shared.IoC\bin\Debug\netcoreapp2.1\Shared.Messages.pdb
+C:\Nowy folder\Shared.IoC\obj\Debug\netcoreapp2.1\Shared.IoC.csprojAssemblyReference.cache
+C:\Nowy folder\Shared.IoC\obj\Debug\netcoreapp2.1\Shared.IoC.csproj.CoreCompileInputs.cache
+C:\Nowy folder\Shared.IoC\obj\Debug\netcoreapp2.1\Shared.IoC.AssemblyInfoInputs.cache
+C:\Nowy folder\Shared.IoC\obj\Debug\netcoreapp2.1\Shared.IoC.AssemblyInfo.cs
+C:\Nowy folder\Shared.IoC\obj\Debug\netcoreapp2.1\Shared.IoC.csproj.CopyComplete
+C:\Nowy folder\Shared.IoC\obj\Debug\netcoreapp2.1\Shared.IoC.dll
+C:\Nowy folder\Shared.IoC\obj\Debug\netcoreapp2.1\Shared.IoC.pdb

@@ -1,5 +1,6 @@
 ﻿using Akka.Actor;
 using Confluent.Kafka;
+using Confluent.Kafka.Serialization;
 using Shared.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,32 +9,34 @@ using System.Threading.Tasks;
 
 namespace Shared
 {
-    public class ConsumerWrapper : IDisposable, IConsumerWrapper
+    public class ConsumerWrapper<K, V> : IDisposable, IConsumerWrapper
     {
-        protected Consumer consumer;
+        protected KafkaConsumerConfig config;
+        protected Consumer<K, V> consumer;
         protected List<IActorRef> observers;
         protected IEnumerable<string> topics;
-        protected int timeout = 1000;
+
         protected int commitPeriod = 1;
         protected long lastCommitedOffset = 0;
-        protected List<Message> _buffer = new List<Message>();
-        protected int _bufferLimit = 2000;
+        protected List<Message<K, V>> _buffer = new List<Message<K, V>>();
 
-        protected ConsumerWrapper()
+        protected ConsumerWrapper(KafkaConsumerConfig config)
         {
+            this.config = config;
             this.observers = new List<IActorRef>();
         }
 
-        protected ConsumerWrapper(Consumer consumer)
+        protected ConsumerWrapper(Consumer<K, V> consumer, KafkaConsumerConfig config)
         {
             this.consumer = consumer;
+            this.config = config;
             this.observers = new List<IActorRef>();
         }
 
-        public static IConsumerWrapper New(IEnumerable<KeyValuePair<string, object>> config)
+        public static IConsumerWrapper New(KafkaConsumerConfig config, IDeserializer<V> valueDeserializer)
         {
-            Consumer consumer = new Consumer(config);
-            ConsumerWrapper cw = new ConsumerWrapper(consumer);
+            Consumer<K, V> consumer = new Consumer<K, V>(config.Settings, null, valueDeserializer);
+            ConsumerWrapper<K, V> cw = new ConsumerWrapper<K, V>(consumer, config);
             return cw;
         }
 
@@ -52,9 +55,9 @@ namespace Shared
 
         public virtual void Poll()
         {
-            if (_buffer.Count < _bufferLimit)
+            if (_buffer.Count < config.BufferLimit)
             {
-                consumer.Poll(this.timeout);
+                consumer.Poll(config.Timeout);
             }
             else
             {
@@ -76,13 +79,7 @@ namespace Shared
 
         public virtual IConsumerWrapper WithPoolingTimeout(int timeout)
         {
-            this.timeout = timeout;
-            return this;
-        }
-
-        public virtual IConsumerWrapper WithCommitPeriod(int commitPeriod)
-        {
-            this.commitPeriod = commitPeriod;
+            this.config.Timeout = timeout;
             return this;
         }
 
@@ -102,7 +99,7 @@ namespace Shared
             });
         }
 
-        protected virtual void Consumer_OnMessage(object sender, Message e)
+        protected virtual void Consumer_OnMessage(object sender, Message<K, V> e)
         {
             this._buffer.Add(e);
         }

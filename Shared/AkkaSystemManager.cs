@@ -11,15 +11,13 @@ namespace Shared
     {
         private ActorSystem system;
         private Config config;
-        private string configPath;
-        private string actorSystemName;
+        private AkkaSystemManagerConfig systemConfig;
         private Func<ActorSystem, IDependencyResolver> diresolver;
         private Dictionary<string, IActorRef> actorsCreated = new Dictionary<string, IActorRef>();
 
-        public AkkaSystemManager(string configPath, string actorsystemName, Func<ActorSystem, IDependencyResolver> resolverCreator)
+        public AkkaSystemManager(AkkaSystemManagerConfig config, Func<ActorSystem, IDependencyResolver> resolverCreator)
         {
-            this.configPath = configPath;
-            this.actorSystemName = actorsystemName;
+            this.systemConfig = config;
             this.diresolver = resolverCreator;
         }
 
@@ -30,12 +28,12 @@ namespace Shared
 
         private void CreateActorSystem()
         {
-            this.system = ActorSystem.Create("KafkaConsumingSystem", config);
+            this.system = ActorSystem.Create(this.systemConfig.SystemName, config);
         }
 
         private void LoadConfig()
         {
-            this.config = HoconLoader.ParseConfig(configPath);
+            this.config = HoconLoader.ParseConfig(this.systemConfig.SystemHoconConfigPath);
         }
 
         public IActorRef RunActor<T>(string name) where T : ActorBase

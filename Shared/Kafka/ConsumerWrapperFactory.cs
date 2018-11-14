@@ -1,20 +1,22 @@
-﻿using Shared.Interfaces;
+﻿using Confluent.Kafka;
+using Confluent.Kafka.Serialization;
+using Shared.Interfaces;
 using System.Collections.Generic;
 
 namespace Shared
 {
     public class ConsumerWrapperFactory : IConsumerWrapperFactory
     {
-        private KafkaConfig config;
+        private KafkaConsumerConfig config;
 
-        public ConsumerWrapperFactory(KafkaConfig config)
+        public ConsumerWrapperFactory(KafkaConsumerConfig config)
         {
             this.config = config;
         }
 
         public IConsumerWrapper Create()
         {
-            return ConsumerWrapper.New(config.Settings).Subscribe(config.Topics).WithCommitPeriod(5).WithPoolingTimeout(1000);
+            return ConsumerWrapper<Null, string>.New(config, new StringDeserializer(System.Text.Encoding.UTF8)).Subscribe(config.Topics).WithPoolingTimeout(1000);
         }
     }
 
@@ -22,7 +24,7 @@ namespace Shared
     {
         public IConsumerWrapper Create()
         {
-            return FakeConsumerWrapper.New(new List<KeyValuePair<string, object>>()).Subscribe(new List<string>() { "dummy" }).WithCommitPeriod(5).WithPoolingTimeout(1000); ;
+            return FakeConsumerWrapper.New(new KafkaConsumerConfig()).Subscribe(new List<string>() { "dummy" }).WithPoolingTimeout(1000); ;
         }
     }
 }

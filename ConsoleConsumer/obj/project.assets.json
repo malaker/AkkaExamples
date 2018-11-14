@@ -5161,11 +5161,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\ConsoleApp4\\KafkaConsumer.csproj",
-      "projectName": "KafkaConsumer",
-      "projectPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\ConsoleApp4\\KafkaConsumer.csproj",
+      "projectUniqueName": "C:\\Nowy folder\\ConsoleConsumer\\ConsoleConsumer.csproj",
+      "projectName": "ConsoleConsumer",
+      "projectPath": "C:\\Nowy folder\\ConsoleConsumer\\ConsoleConsumer.csproj",
       "packagesPath": "C:\\Users\\kb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\ConsoleApp4\\obj\\",
+      "outputPath": "C:\\Nowy folder\\ConsoleConsumer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5184,11 +5184,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.IoC\\Shared.IoC.csproj": {
-              "projectPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.IoC\\Shared.IoC.csproj"
+            "C:\\Nowy folder\\Shared.IoC\\Shared.IoC.csproj": {
+              "projectPath": "C:\\Nowy folder\\Shared.IoC\\Shared.IoC.csproj"
             },
-            "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared\\Shared.csproj"
+            "C:\\Nowy folder\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Nowy folder\\Shared\\Shared.csproj"
             }
           }
         }

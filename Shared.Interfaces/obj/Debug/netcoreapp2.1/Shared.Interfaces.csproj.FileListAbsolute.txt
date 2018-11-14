@@ -7,3 +7,11 @@ C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Interfaces\
 C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Interfaces\bin\Debug\netcoreapp2.1\Shared.Interfaces.pdb
 C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Interfaces\obj\Debug\netcoreapp2.1\Shared.Interfaces.dll
 C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\Shared.Interfaces\obj\Debug\netcoreapp2.1\Shared.Interfaces.pdb
+C:\Nowy folder\Shared.Interfaces\bin\Debug\netcoreapp2.1\Shared.Interfaces.deps.json
+C:\Nowy folder\Shared.Interfaces\bin\Debug\netcoreapp2.1\Shared.Interfaces.dll
+C:\Nowy folder\Shared.Interfaces\bin\Debug\netcoreapp2.1\Shared.Interfaces.pdb
+C:\Nowy folder\Shared.Interfaces\obj\Debug\netcoreapp2.1\Shared.Interfaces.csproj.CoreCompileInputs.cache
+C:\Nowy folder\Shared.Interfaces\obj\Debug\netcoreapp2.1\Shared.Interfaces.AssemblyInfoInputs.cache
+C:\Nowy folder\Shared.Interfaces\obj\Debug\netcoreapp2.1\Shared.Interfaces.AssemblyInfo.cs
+C:\Nowy folder\Shared.Interfaces\obj\Debug\netcoreapp2.1\Shared.Interfaces.dll
+C:\Nowy folder\Shared.Interfaces\obj\Debug\netcoreapp2.1\Shared.Interfaces.pdb

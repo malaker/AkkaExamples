@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaConsumer", "ConsoleConsumer\KafkaConsumer.csproj", "{356322C7-39CA-483F-A9BC-AE46497E9072}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleConsumer", "ConsoleConsumer\ConsoleConsumer.csproj", "{356322C7-39CA-483F-A9BC-AE46497E9072}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{5F395075-2906-4F62-8CD2-0601B735E1AD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Messages", "Shared.Messages\Shared.Messages.csproj", "{4F73BC4B-3B2F-4BB1-AA8D-9DBEF84BEB42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Common", "Shared.Common\Shared.Common.csproj", "{A0FB3C1A-19CE-4160-B66A-DF3DAD603863}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Common", "Shared.Common\Shared.Common.csproj", "{A0FB3C1A-19CE-4160-B66A-DF3DAD603863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Interfaces", "Shared.Interfaces\Shared.Interfaces.csproj", "{41438EFF-CD62-4D8C-8AEB-CD178D8A1973}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Interfaces", "Shared.Interfaces\Shared.Interfaces.csproj", "{41438EFF-CD62-4D8C-8AEB-CD178D8A1973}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.IoC", "Shared.IoC\Shared.IoC.csproj", "{EB838F9D-76A9-4ABA-AD10-A63929E900D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.IoC", "Shared.IoC\Shared.IoC.csproj", "{EB838F9D-76A9-4ABA-AD10-A63929E900D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

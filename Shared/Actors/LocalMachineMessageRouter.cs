@@ -15,13 +15,13 @@ namespace Shared
         public LocalMachineMessageRouter()
         {
             this.messageProcessorActorRouter = Context.ActorOf(Context.System.DI().Props<SimpleAkkaMessageProcessor>().WithRouter(FromConfig.Instance), "messageForwarder");
-            Receive<Message>(Forward);
+            Receive<Message<Null, string>>(Forward);
             Receive<BatchOffsetCommits>(PushToBuffer);
             Receive<FlushBufferMessage>(Flush);
             Context.System.Scheduler.ScheduleTellRepeatedlyCancelable(1000, 2000, Self, new FlushBufferMessage(), Self);
         }
 
-        public bool Forward(Message value)
+        public bool Forward(Message<Null, string> value)
         {
             this.messageProcessorActorRouter.Tell(value);
             return false;

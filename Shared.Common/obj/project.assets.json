@@ -4007,11 +4007,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Common\\Shared.Common.csproj",
+      "projectUniqueName": "C:\\Nowy folder\\Shared.Common\\Shared.Common.csproj",
       "projectName": "Shared.Common",
-      "projectPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Common\\Shared.Common.csproj",
+      "projectPath": "C:\\Nowy folder\\Shared.Common\\Shared.Common.csproj",
       "packagesPath": "C:\\Users\\kb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Common\\obj\\",
+      "outputPath": "C:\\Nowy folder\\Shared.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

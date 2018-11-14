@@ -4207,11 +4207,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Interfaces\\Shared.Interfaces.csproj",
+      "projectUniqueName": "C:\\Nowy folder\\Shared.Interfaces\\Shared.Interfaces.csproj",
       "projectName": "Shared.Interfaces",
-      "projectPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Interfaces\\Shared.Interfaces.csproj",
+      "projectPath": "C:\\Nowy folder\\Shared.Interfaces\\Shared.Interfaces.csproj",
       "packagesPath": "C:\\Users\\kb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Interfaces\\obj\\",
+      "outputPath": "C:\\Nowy folder\\Shared.Interfaces\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

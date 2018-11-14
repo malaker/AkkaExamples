@@ -21,3 +21,26 @@ C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\ConsoleApp4\bin\De
 C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\ConsoleApp4\bin\Debug\netcoreapp2.1\Shared.Interfaces.pdb
 C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\ConsoleApp4\bin\Debug\netcoreapp2.1\Shared.IoC.dll
 C:\Users\kb\Documents\Visual Studio 2017\Projects\ConsoleApp4\ConsoleApp4\bin\Debug\netcoreapp2.1\Shared.IoC.pdb
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\configuration.hocon
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\KafkaConsumer.deps.json
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\KafkaConsumer.runtimeconfig.json
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\KafkaConsumer.runtimeconfig.dev.json
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\KafkaConsumer.dll
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\KafkaConsumer.pdb
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\Shared.Common.dll
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\Shared.dll
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\Shared.Interfaces.dll
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\Shared.IoC.dll
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\Shared.Messages.dll
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\Shared.IoC.pdb
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\Shared.pdb
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\Shared.Common.pdb
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\Shared.Interfaces.pdb
+C:\Nowy folder\ConsoleConsumer\bin\Debug\netcoreapp2.1\Shared.Messages.pdb
+C:\Nowy folder\ConsoleConsumer\obj\Debug\netcoreapp2.1\KafkaConsumer.csprojAssemblyReference.cache
+C:\Nowy folder\ConsoleConsumer\obj\Debug\netcoreapp2.1\KafkaConsumer.csproj.CoreCompileInputs.cache
+C:\Nowy folder\ConsoleConsumer\obj\Debug\netcoreapp2.1\KafkaConsumer.AssemblyInfoInputs.cache
+C:\Nowy folder\ConsoleConsumer\obj\Debug\netcoreapp2.1\KafkaConsumer.AssemblyInfo.cs
+C:\Nowy folder\ConsoleConsumer\obj\Debug\netcoreapp2.1\KafkaConsumer.csproj.CopyComplete
+C:\Nowy folder\ConsoleConsumer\obj\Debug\netcoreapp2.1\KafkaConsumer.dll
+C:\Nowy folder\ConsoleConsumer\obj\Debug\netcoreapp2.1\KafkaConsumer.pdb

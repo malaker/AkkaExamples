@@ -4,7 +4,6 @@ using Shared.Messages;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
@@ -12,11 +11,15 @@ using System.Xml.Serialization;
 
 namespace Shared
 {
-    public class FakeConsumerWrapper : ConsumerWrapper
+    public class FakeConsumerWrapper : ConsumerWrapper<Null, string>
     {
-        public static FakeConsumerWrapper New(System.Collections.Generic.IEnumerable<KeyValuePair<string, object>> config)
+        protected FakeConsumerWrapper(KafkaConsumerConfig config) : base(config)
         {
-            FakeConsumerWrapper cw = new FakeConsumerWrapper();
+        }
+
+        public static FakeConsumerWrapper New(KafkaConsumerConfig config)
+        {
+            FakeConsumerWrapper cw = new FakeConsumerWrapper(config);
             return cw;
         }
 
@@ -27,7 +30,7 @@ namespace Shared
 
         public override void Poll()
         {
-            if (_buffer.Count < _bufferLimit)
+            if (_buffer.Count < config.BufferLimit)
             {
                 XmlSerializer xsSubmit = new XmlSerializer(typeof(ExtensionToSomeContract));
                 XmlSerializer xsSubmit2 = new XmlSerializer(typeof(SomeContract));
@@ -53,16 +56,8 @@ namespace Shared
                             xsSubmit2.Serialize(writer, sc);
                             var ts = new Timestamp(DateTime.Now, TimestampType.CreateTime);
                             var s = sww.ToString();
-                            var bytes = Encoding.UTF8.GetBytes(s);
-
-                            this.Consumer_OnMessage(this, new Message("", 1, 1, null, bytes, ts, null));
+                            this.Consumer_OnMessage(this, new Message<Null, string>("", 1, 1, null, s, ts, null));
                         }
-                    }
-
-                    var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                    using (var ms = new MemoryStream())
-                    {
-                        binaryFormatter.Serialize(ms, sc);
                     }
                 }
             }

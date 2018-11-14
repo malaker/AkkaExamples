@@ -2,7 +2,7 @@
 
 namespace Shared
 {
-    public class KafkaConfig
+    public class KafkaConsumerConfig
     {
         public int Timeout { get; set; } = 1000;
         public int BufferLimit { get; set; } = 2000;

@@ -18,8 +18,6 @@ namespace Shared.Interfaces
 
         IConsumerWrapper Subscribe(IEnumerable<string> topics);
 
-        IConsumerWrapper WithCommitPeriod(int commitPeriod);
-
         IConsumerWrapper WithMessageObserver(IActorRef observer);
 
         IConsumerWrapper WithPoolingTimeout(int timeout);

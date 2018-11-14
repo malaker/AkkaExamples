@@ -2100,11 +2100,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Messages\\Shared.Messages.csproj",
+      "projectUniqueName": "C:\\Nowy folder\\Shared.Messages\\Shared.Messages.csproj",
       "projectName": "Shared.Messages",
-      "projectPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Messages\\Shared.Messages.csproj",
+      "projectPath": "C:\\Nowy folder\\Shared.Messages\\Shared.Messages.csproj",
       "packagesPath": "C:\\Users\\kb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kb\\Documents\\Visual Studio 2017\\Projects\\ConsoleApp4\\Shared.Messages\\obj\\",
+      "outputPath": "C:\\Nowy folder\\Shared.Messages\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using MediatR;
 using MediatR.Pipeline;
-using System;
 using System.Reflection;
 
 namespace Shared.IoC
@@ -13,7 +12,7 @@ namespace Shared.IoC
             var builder = new ContainerBuilder();
             //builder.RegisterType<ConsumerWrapper>().AsSelf().AsImplementedInterfaces();
             builder.RegisterType<FakeConsumerFactory>().AsImplementedInterfaces();
-            builder.RegisterType<KafkaConfig>().AsSelf().AsImplementedInterfaces();
+            builder.RegisterType<KafkaConsumerConfig>().AsSelf().AsImplementedInterfaces();
             builder.RegisterType<AkkaConsumerWrapper>().AsSelf().AsImplementedInterfaces();
             //builder.RegisterType<ConsumerWrapperFactory>().AsSelf();
             builder.RegisterType<SqlConnectionProvider>().AsSelf().AsImplementedInterfaces(); ;
