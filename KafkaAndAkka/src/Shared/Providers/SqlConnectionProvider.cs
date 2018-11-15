@@ -6,7 +6,7 @@ namespace Shared
     {
         public string Provide()
         {
-            return "Data Source=.\\SQLEXPRESS;Initial Catalog=AkkaTest;Integrated Security=True";
+            return "Data Source=192.168.1.10\\SQLEXPRESS,1433;Initial Catalog=AkkaTest;User Id=test2;Password=test2;";
         }
     }
 }

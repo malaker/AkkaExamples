@@ -1,4 +1,5 @@
 ﻿akka {
+	loggers=["Akka.Logger.Serilog.SerilogLogger, Akka.Logger.Serilog"]
     actor{
 		provider = "Akka.Actor.LocalActorRefProvider"
 		deployment {
@@ -26,7 +27,7 @@
 			schema-name = dbo
 			auto-initialize = on
 			table-name = SnapshotStore
-			connection-string = "Data Source=.\\SQLEXPRESS;Initial Catalog=AkkaTest;Integrated Security=True"
+			connection-string = "Data Source=192.168.1.10\\SQLEXPRESS,1433;Initial Catalog=AkkaTest;User Id=test2;Password=test2;"
 		}
 	  }
 	}

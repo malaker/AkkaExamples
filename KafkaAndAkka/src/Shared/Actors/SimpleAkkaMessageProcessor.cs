@@ -1,8 +1,10 @@
 ﻿using Akka.Actor;
+using Akka.Event;
 using Confluent.Kafka;
 using MediatR;
 using Shared.Messages;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +19,7 @@ namespace Shared
             this.mediator = mediator;
             this.serializer = new XmlSerializer(typeof(SomeContract));
             Receive<Confluent.Kafka.Message<Null, string>>(MessageHandler);
-            Receive<FlushBufferMessage>(async m => await FlushHandler(m));
+            Receive<FlushBufferMessage>(m => FlushHandler(m));
             Context.System.Scheduler.ScheduleTellRepeatedlyCancelable(1000, 2000, Self, new FlushBufferMessage(), Self);
         }
 
@@ -37,13 +39,20 @@ namespace Shared
             return false;
         }
 
-        private async Task<bool> FlushHandler(FlushBufferMessage msg)
+        private bool FlushHandler(FlushBufferMessage msg)
         {
+            var log = Context.GetLogger();
+            var coordinator = Context.System.ActorSelection("/user/akkaConsumerWrapper/messageRouter");
             if (Buffer.Any())
             {
-                await this.mediator.Send(new InsertOrUpdateSomeContract() { Data = Buffer });
-
-                var coordinator = Context.System.ActorSelection("/user/akkaConsumerWrapper/messageRouter");
+                try
+                {
+                    this.mediator.Send(new InsertOrUpdateSomeContract() { Data = Buffer }).Wait();
+                }
+                catch (SqlException ex)
+                {
+                    log.Error(ex.Message);
+                }
 
                 coordinator.Tell(new BatchOffsetCommits() { Commits = OffsetPartition.Select(m => new CommitMessage() { TopicPartitionOffset = m }).ToList() });
 

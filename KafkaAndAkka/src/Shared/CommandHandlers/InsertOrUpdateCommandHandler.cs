@@ -30,6 +30,7 @@ namespace Shared
 
                     ", request.Data);
             }
+
             return await Unit.Task;
         }
     }
