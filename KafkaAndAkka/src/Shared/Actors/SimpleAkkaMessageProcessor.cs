@@ -47,7 +47,7 @@ namespace Shared
             {
                 try
                 {
-                    this.mediator.Send(new InsertOrUpdateSomeContract() { Data = Buffer }).Wait();
+                    this.mediator.Send(new InsertOrUpdateSomeContract() { Data = Buffer }).GetAwaiter().GetResult();
                 }
                 catch (SqlException ex)
                 {

@@ -7,9 +7,10 @@ namespace Shared.IoC
 {
     public static class AutofacContainer
     {
-        public static IContainer Register()
+        public static IContainer Register(Akka.Configuration.Config config)
         {
             var builder = new ContainerBuilder();
+            builder.Register<Akka.Configuration.Config>(c => config).AsSelf();
             //builder.RegisterType<ConsumerWrapper>().AsSelf().AsImplementedInterfaces();
             builder.RegisterType<FakeConsumerFactory>().AsImplementedInterfaces();
             builder.RegisterType<KafkaConsumerConfig>().AsSelf().AsImplementedInterfaces();

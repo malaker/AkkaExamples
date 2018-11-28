@@ -13,11 +13,11 @@ namespace Shared
         private ActorSystem system;
         private Config config;
         private AkkaSystemManagerConfig systemConfig;
-        private Func<ActorSystem, IDependencyResolver> diresolver;
+        private Func<ActorSystem, Config, IDependencyResolver> diresolver;
         private Dictionary<string, IActorRef> actorsCreated = new Dictionary<string, IActorRef>();
         public Task WhenTerminated => system.WhenTerminated;
 
-        public AkkaSystemManager(AkkaSystemManagerConfig config, Func<ActorSystem, IDependencyResolver> resolverCreator)
+        public AkkaSystemManager(AkkaSystemManagerConfig config, Func<ActorSystem, Config, IDependencyResolver> resolverCreator)
         {
             this.systemConfig = config;
             this.diresolver = resolverCreator;
@@ -43,7 +43,7 @@ namespace Shared
             if (config == null) LoadConfig();
             if (system == null) CreateActorSystem();
 
-            IActorRef akkaConsumer = system.ActorOf(diresolver(system).Create<T>(), name);
+            IActorRef akkaConsumer = system.ActorOf(diresolver(system, this.config).Create<T>(), name);
             actorsCreated[name] = akkaConsumer;
             return akkaConsumer;
         }

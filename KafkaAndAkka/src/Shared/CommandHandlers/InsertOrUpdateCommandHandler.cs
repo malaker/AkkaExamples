@@ -20,7 +20,7 @@ namespace Shared
         {
             using (var conn = new SqlConnection(this.provider.Provide()))
             {
-                await conn.ExecuteAsync(@"
+                conn.Execute(@"
                         UPDATE SomeContract
                         SET Content = @Content, ModifiedOn = GETUTCDATE()
                         WHERE Id = @Id AND ModifiedOn < @Timestamp

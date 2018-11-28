@@ -1,28 +1,65 @@
-version: '3.4'
-networks:
-  confluent:
-    driver: bridge
+version: '3.7'
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper
-    container_name: zookeeper
     environment:
      - ZOOKEEPER_CLIENT_PORT=2181
-    networks:
-     - "confluent"
     ports:
      - "2181:2181"
+    volumes:
+      - C:\docker_volumes\vol1\zk-data:/var/lib/zookeeper/data
+      - C:\docker_volumes\vol2\zk-txn-logs:/var/lib/zookeeper/log 
   kafka:
     depends_on: 
       - "zookeeper"
     image: confluentinc/cp-kafka
-    container_name: kafka
     environment:
      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
-    networks:
-     - "confluent"
     ports:
-     - "9092:9092"  
-    
+     - "9092:9092"
+    volumes:
+      - C:\docker_volumes\vol3\kafka-data:/var/lib/kafka/data   
+  mssql:
+    env_file: 
+      - .env
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    ports:
+      - "1434:1433"
+    volumes:
+      - C:\docker_volumes\mssql:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S mssql -U ${SA_USER} -P ${SA_PASSWORD} -Q 'select 1'
+  databaseInitializer:    
+    env_file: 
+      - .env
+    image: initmssql
+    build:
+      context: ./sql
+      dockerfile: ./Dockerfile  
+    links:
+      - mssql
+    depends_on:
+      - mssql
+    entrypoint:
+      - bash 
+      - -c 
+      - '/opt/mssql-tools/bin/sqlcmd -S mssql -U ${SA_USER} -P ${SA_PASSWORD} -d master -i ./Init.sql -i ./Init.sql'
+  consoleconsumer:
+    env_file: 
+      - .env
+    depends_on: 
+      - databaseInitializer
+      - mssql
+      - kafka
+    links:
+     - mssql
+     - kafka
+     - zookeeper
+    image: ${DOCKER_REGISTRY-}consoleconsumer
+    build:
+      context: .
+      dockerfile: ConsoleConsumer/Dockerfile

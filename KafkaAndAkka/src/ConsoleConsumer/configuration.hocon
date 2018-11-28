@@ -17,7 +17,7 @@
 			auto-initialize = on
 			table-name = EventJournal
 			metadata-table-name = Metadata
-			connection-string = "Data Source=.\\SQLEXPRESS;Initial Catalog=AkkaTest;Integrated Security=True"
+			connection-string = "Data Source=${SQL_DATA_SOURCE};Initial Catalog=${DB_NAME};User Id=${SA_USER};Password=${SA_PASSWORD}"
 		}
 	  } 
 	  snapshot-store{
@@ -27,7 +27,7 @@
 			schema-name = dbo
 			auto-initialize = on
 			table-name = SnapshotStore
-			connection-string = "Data Source=192.168.1.10\\SQLEXPRESS,1433;Initial Catalog=AkkaTest;User Id=test2;Password=test2;"
+			connection-string = "Data Source=${SQL_DATA_SOURCE};Initial Catalog=${DB_NAME};User Id=${?SA_USER};Password=${SA_PASSWORD};"
 		}
 	  }
 	}
