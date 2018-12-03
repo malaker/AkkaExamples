@@ -20,7 +20,19 @@ services:
     ports:
      - "9092:9092"
     volumes:
-      - C:\docker_volumes\vol3\kafka-data:/var/lib/kafka/data   
+      - C:\docker_volumes\vol3\kafka-data:/var/lib/kafka/data
+  topicCreator:
+    image: confluentinc/cp-kafka
+    env_file: 
+      - .env
+    depends_on:
+      - zookeeper
+      - kafka
+    command: |
+      bash -c 'echo Waiting for Kafka to be ready... && \
+      cub kafka-ready -b kafka:9092 1 120 && \
+      kafka-topics --create --topic ${KAFKA_TOPIC_NAME} --partitions 1 --replication-factor 1 --if-not-exists --zookeeper zookeeper:2181 && \
+      sleep infinity'
   mssql:
     env_file: 
       - .env
@@ -55,6 +67,7 @@ services:
       - databaseInitializer
       - mssql
       - kafka
+      - topicCreator
     links:
      - mssql
      - kafka
@@ -63,3 +76,19 @@ services:
     build:
       context: .
       dockerfile: ConsoleConsumer/Dockerfile
+  consoleproducer:
+    env_file: 
+      - .env
+    depends_on:
+      - zookeeper
+      - kafka
+      - topicCreator
+    links:
+     - kafka
+     - zookeeper
+    image: ${DOCKER_REGISTRY-}consoleproducer
+    build:
+      args: 
+        messageToProducer: 1000
+      context: .
+      dockerfile: ConsoleProducer/Dockerfile
