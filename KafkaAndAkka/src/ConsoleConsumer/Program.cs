@@ -5,6 +5,7 @@ using Shared;
 using Shared.IoC;
 using System;
 using System.Net.NetworkInformation;
+using System.Threading.Tasks;
 
 namespace ConsoleConsumer
 {
@@ -32,6 +33,7 @@ namespace ConsoleConsumer
         private static void Main(string[] args)
         {
             PingHost("mssql", true);
+            var ping = PingHost("kafka", true);
             var logger = new LoggerConfiguration()
                         .WriteTo.Console()
                         .MinimumLevel.Information()
@@ -42,6 +44,7 @@ namespace ConsoleConsumer
             AkkaSystemManager mgr = new AkkaSystemManager(config, (ActorSystem system, Akka.Configuration.Config c) => new AutoFacDependencyResolver(AutofacContainer.Register(c), system));
             Console.CancelKeyPress += (sender, eventArgs) => { mgr.Stop(); };
             mgr.RunActor<AkkaConsumerWrapper>("akkaConsumerWrapper");
+          
             mgr.WhenTerminated.Wait();
             Console.WriteLine("Progam is exiting");
         }

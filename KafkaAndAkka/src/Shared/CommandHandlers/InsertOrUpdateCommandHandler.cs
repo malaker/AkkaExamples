@@ -2,6 +2,7 @@
 using MediatR;
 using Shared.Interfaces;
 using System.Data.SqlClient;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,15 +21,18 @@ namespace Shared
         {
             using (var conn = new SqlConnection(this.provider.Provide()))
             {
-                conn.Execute(@"
+                request.Data.ForEach(r =>
+                {
+                    conn.Execute(@"
                         UPDATE SomeContract
-                        SET Content = @Content, ModifiedOn = GETUTCDATE()
+                        SET Content = @MyXML , ModifiedOn = GETUTCDATE()
                         WHERE Id = @Id AND ModifiedOn < @Timestamp
                         IF @@ROWCOUNT = 0
                             INSERT INTO SomeContract (Id,Content,ModifiedOn)
-                            VALUES(@Id, @Content, @Timestamp)
+                            VALUES(@Id, @MyXML, @Timestamp)
 
-                    ", request.Data);
+                    ", r);
+                });
             }
 
             return await Unit.Task;

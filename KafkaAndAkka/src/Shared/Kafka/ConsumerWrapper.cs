@@ -61,7 +61,7 @@ namespace Shared
             }
             else
             {
-                FlushBuffer();
+              FlushBuffer();
             }
         }
 

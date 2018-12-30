@@ -1,20 +1,23 @@
 ﻿using Akka.Actor;
+using Akka.DI.Core;
 using Akka.Event;
 using Confluent.Kafka;
 using MediatR;
+using Shared.Interfaces;
 using Shared.Messages;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Shared
 {
-    public class SimpleAkkaMessageProcessor : ReceiveActor
+    public class SimpleAkkaMessageProcessor : ReceiveActor, IKnowActor<AkkaConsumerWrapper>
     {
-        public SimpleAkkaMessageProcessor(IMediator mediator)
+        public SimpleAkkaMessageProcessor(IRequestHandler<InsertOrUpdateSomeContract> mediator)
         {
             this.mediator = mediator;
             this.serializer = new XmlSerializer(typeof(SomeContract));
@@ -25,8 +28,10 @@ namespace Shared
 
         public List<SomeContract> Buffer = new List<SomeContract>();
         public List<TopicPartitionOffset> OffsetPartition = new List<TopicPartitionOffset>();
-        private IMediator mediator;
+        private IRequestHandler<InsertOrUpdateSomeContract> mediator;
         private XmlSerializer serializer;
+
+        public IActorRef Ref => throw new System.NotImplementedException();
 
         private bool MessageHandler(Confluent.Kafka.Message<Null, string> msg)
         {
@@ -47,7 +52,7 @@ namespace Shared
             {
                 try
                 {
-                    this.mediator.Send(new InsertOrUpdateSomeContract() { Data = Buffer }).GetAwaiter().GetResult();
+                    this.mediator.Handle(new InsertOrUpdateSomeContract() { Data = Buffer }, CancellationToken.None).GetAwaiter().GetResult();
                 }
                 catch (SqlException ex)
                 {

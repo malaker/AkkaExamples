@@ -22,4 +22,9 @@ namespace Shared.Interfaces
 
         IConsumerWrapper WithPoolingTimeout(int timeout);
     }
+
+    public interface IKnowActor<TActor> where TActor : ActorBase
+    {
+        IActorRef Ref { get; }
+    }
 }

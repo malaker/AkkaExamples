@@ -1,4 +1,5 @@
 ﻿using Akka.Actor;
+using Akka.Event;
 using Shared.Interfaces;
 using Shared.Messages;
 using System.Linq;
@@ -18,7 +19,6 @@ namespace Shared
             this.consumerWrapperFactory = consumerWrapperFactory;
             localMachineMessageForwader = Context.ActorOf(Props.Create<LocalMachineMessageRouter>(), "messageRouter");
             ConsumerWrapperInit();
-            Become(Initialized);
         }
 
         private bool ConsumerWrapperInit()
@@ -33,7 +33,7 @@ namespace Shared
 
         private void Initialized()
         {
-            Context.System.Scheduler.ScheduleTellRepeatedlyCancelable(1000, 3000, Self, new PollMessageFromKafkaMessage(), Self);
+            Context.System.Scheduler.ScheduleTellRepeatedlyCancelable(1000*120, 4, Self, new PollMessageFromKafkaMessage(), Self);
 
             Receive<PollMessageFromKafkaMessage>(m =>
             {
@@ -46,6 +46,8 @@ namespace Shared
 
                 await consumerWrapper.CommitMessageHandler(topicpartof);
             });
+
+            Context.GetLogger().Info("Initialized") ;
         }
     }
 }

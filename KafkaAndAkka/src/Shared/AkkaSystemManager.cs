@@ -15,7 +15,18 @@ namespace Shared
         private AkkaSystemManagerConfig systemConfig;
         private Func<ActorSystem, Config, IDependencyResolver> diresolver;
         private Dictionary<string, IActorRef> actorsCreated = new Dictionary<string, IActorRef>();
-        public Task WhenTerminated => system.WhenTerminated;
+        public Task WhenTerminated
+        {
+            get
+            {
+                if (system == null) {
+                    CreateActorSystem();
+                    LoadConfig();
+                }
+                return system.WhenTerminated;
+
+            }
+        }
 
         public AkkaSystemManager(AkkaSystemManagerConfig config, Func<ActorSystem, Config, IDependencyResolver> resolverCreator)
         {

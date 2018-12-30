@@ -12,13 +12,14 @@ namespace Shared.IoC
             var builder = new ContainerBuilder();
             builder.Register<Akka.Configuration.Config>(c => config).AsSelf();
             //builder.RegisterType<ConsumerWrapper>().AsSelf().AsImplementedInterfaces();
-            builder.RegisterType<FakeConsumerFactory>().AsImplementedInterfaces();
+            //builder.RegisterType<FakeConsumerFactory>().AsImplementedInterfaces();
             builder.RegisterType<KafkaConsumerConfig>().AsSelf().AsImplementedInterfaces();
-            builder.RegisterType<AkkaConsumerWrapper>().AsSelf().AsImplementedInterfaces();
-            //builder.RegisterType<ConsumerWrapperFactory>().AsSelf();
+            builder.RegisterType<AkkaConsumerWrapper>().AsSelf().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<ConsumerWrapperFactory>().AsSelf().AsImplementedInterfaces();
             builder.RegisterType<SqlConnectionProvider>().AsSelf().AsImplementedInterfaces(); ;
             builder.RegisterType<SimpleAkkaMessageProcessor>().AsSelf().AsImplementedInterfaces();
             builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly).AsImplementedInterfaces();
+
             var mediatrOpenTypes = new[]
           {
                 typeof(IRequestHandler<,>),

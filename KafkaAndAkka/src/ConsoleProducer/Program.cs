@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -34,15 +35,18 @@ namespace ConsoleProducer
 
         private static void Main(string[] args)
         {
-            PingHost("kafka", true);
-            string topic = Environment.GetEnvironmentVariable("TOPIC_NAME");
-
-            int messagesToProduce = 1000;
+         
+            var ping=PingHost("kafka", true);
+            string topic = Environment.GetEnvironmentVariable("KAFKA_TOPIC_NAME");
+   
+            int messagesToProduce = 1000000;
 
             var config = new Dictionary<string, object>() { { "bootstrap.servers", Environment.GetEnvironmentVariable("KAFKA_BROKER_LIST") } };
 
             using (var producer = new Producer<Null, string>(config.ToList(), null, new StringSerializer(System.Text.Encoding.UTF8)))
             {
+                producer.OnError += Producer_OnError;
+                producer.OnLog += Producer_OnLog;
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(ExtensionToSomeContract));
                 XmlSerializer xsSubmit2 = new XmlSerializer(typeof(SomeContract));
                 for (var i = 0; i < messagesToProduce; i++)
@@ -67,16 +71,27 @@ namespace ConsoleProducer
                             xsSubmit2.Serialize(writer, sc);
 
                             var messageToSend = sw.ToString();
-
-                            producer.ProduceAsync(topic, null, messageToSend).GetAwaiter().GetResult();
+         
+                            var rr =  producer.ProduceAsync(topic, null, messageToSend).GetAwaiter().GetResult();
                             if (i % 100 == 0)
                             {
                                 producer.Flush(100);
                             }
+                           
                         }
                     }
                 }
             }
+        }
+
+        private static void Producer_OnLog(object sender, LogMessage e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        private static void Producer_OnError(object sender, Error e)
+        {
+            Console.WriteLine(e.Reason);
         }
     }
 }
